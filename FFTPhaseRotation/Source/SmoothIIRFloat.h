@@ -33,20 +33,20 @@ public:
 	}
 
 	// Constant operators
-	const bool operator < (float a) {
+	bool operator < (float a) const {
 		return value < a;
 	}
 
-	const float operator() (){
+	float operator() () const {
 		return value;
 	}
 
-	const bool operator== (float a) {
+	bool operator== (float a) const {
 		return value == a;
 	}
 
 	// Getters
-	const float getUnfiltered() {
+	float getUnfiltered() const {
 		return value;
 	}
 

@@ -153,21 +153,16 @@ void FftphaseRotationAudioProcessorEditor::paint (Graphics& g)
 
 	/*********** DRAWING ************/
 
+	const float rf = 7.5f;
 	auto drawSpace = getLocalBounds();
 	auto header = drawSpace.removeFromTop( 50 );
 
-	auto waveformS = drawSpace.removeFromLeft(drawSpace.getHeight());
-	auto wet_waveFS = drawSpace.removeFromRight(drawSpace.getHeight());
+	const auto waveformS = drawSpace.removeFromLeft(drawSpace.getHeight()).reduced(rf, rf);
+	const auto wet_waveFS = drawSpace.removeFromRight(drawSpace.getHeight()).reduced(rf, rf);
 
-	auto magSpace = drawSpace.removeFromTop(drawSpace.getHeight() / 2);
-	auto phaSpace = drawSpace; //magSpace.removeFromBottom();
+	const auto magSpace = drawSpace.removeFromTop(drawSpace.getHeight() / 2).reduced(rf, rf);
+	const auto phaSpace = drawSpace.reduced(rf, rf);
 
-	const float rf = 7.5f;
-	waveformS.reduce(rf, rf);
-	wet_waveFS.reduce(rf, rf);
-	magSpace.reduce(rf, rf);
-	phaSpace.reduce(rf, rf);
-	
 	g.setColour(Colours::black);
 	g.fillRect(magSpace);
 	g.fillRect(phaSpace);
@@ -176,11 +171,12 @@ void FftphaseRotationAudioProcessorEditor::paint (Graphics& g)
 
 	// draw magnitude and phase
 	const float spacePerBin = magSpace.getWidth() / (0.5f*(float)p.fftSize);
+	const float y = (float)magSpace.getTopLeft().y;
 	for (int i = 0; i < p.fftSize / 2; i++) {
 		g.setColour(Colours::aqua);
-		g.fillRect(magSpace.getTopLeft().x + i * spacePerBin, (float)magSpace.getTopLeft().y, ceil(spacePerBin), (1.0f - p.drawMags[i]) * magSpace.getHeight());
+		g.fillRect(magSpace.getTopLeft().x + i * spacePerBin, y, ceil(spacePerBin), (1.0f - p.drawMags[i]) * magSpace.getHeight());
 		g.setColour(Colours::aqua.darker( 2.0f * pow(1.0f - p.drawMags[i], 0.2f) ) );
-		g.fillRect(phaSpace.getTopLeft().x + i * spacePerBin, phaSpace.getTopLeft().y + (1.0f - p.drawPhas[i]) * phaSpace.getHeight(), spacePerBin, 1.5f+ p.drawMags[i]*5.0f);
+		g.fillRect(phaSpace.getTopLeft().x + i * spacePerBin, phaSpace.getTopLeft().y + (1.0f - p.drawPhas[i]) * phaSpace.getHeight(), spacePerBin, 1.5f + p.drawMags[i]*5.0f);
 	}
 
 	// draw dry waveform

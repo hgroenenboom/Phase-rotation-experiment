@@ -65,7 +65,7 @@ public:
 	int normalizationFactor = 1 << ((fftOrder-1)*2);
 	int fftBufferSize = fftSize << 1;
 
-	static const int maxFFTOrder = 11;
+	static const int maxFFTOrder = 13;
 	static const int maxFFTSize = 1 << maxFFTOrder;
 
 	float fftBuffer[maxFFTSize];
@@ -85,7 +85,7 @@ public:
 	ComboBox waveformSetting;
 
 	// Realtime variables
-	float frequency = 100;
+	float frequency = 100.0f;
 	IIRFloat smoothFrequency;
 	bool isGeneratingWaveform = false;
 	
@@ -218,7 +218,7 @@ public:
 		isGeneratingWaveform = false;
 	}
 
-	float readAudioBufferInterpolated(float pha) {
+	float readAudioBufferInterpolated(float pha) const {
 		const float pos = pha * (fftSize-1);
 		const int minPos = floor(pos);
 		const int maxPos = ceil(pos);

@@ -1,6 +1,8 @@
 # Phase Rotation Experiment
 Testing out FFT phase manipulation for phase rotation in audio signals.
 
+![Screenshot](screenshot.png.png "Screenshot")
+
 Currently tested phase rotation using FFTs on 
 - sinewaves
 - noise

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="ktGgBR" name="FFTPhaseRotation" projectType="audioplug" jucerVersion="5.4.3"
-              pluginFormats="buildStandalone" pluginCharacteristicsValue="pluginIsSynth"
-              pluginChannelConfigs="{0, 2}" companyName="Groenenboom Music Composition &amp; Software Design"
-              version="1.0.0" companyWebsite="www.haroldgroenenboom.nl">
+<JUCERPROJECT id="ktGgBR" name="FFTPhaseRotation" projectType="audioplug" pluginFormats="buildStandalone"
+              pluginCharacteristicsValue="pluginIsSynth" pluginChannelConfigs="{0, 2}"
+              companyName="Groenenboom Music Composition &amp; Software Design"
+              version="1.0.0" companyWebsite="www.haroldgroenenboom.nl" displaySplashScreen="1"
+              jucerFormatVersion="1">
   <MAINGROUP id="xUwzvE" name="FFTPhaseRotation">
     <GROUP id="{B71528BD-60B1-1289-DD8B-1BE2FD4C8492}" name="Source">
       <FILE id="Qwvq4u" name="PluginProcessor.cpp" compile="1" resource="0"

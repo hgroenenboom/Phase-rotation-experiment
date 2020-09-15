@@ -41,7 +41,7 @@ FftphaseRotationAudioProcessor::FftphaseRotationAudioProcessor()
 	onlyHarmonics.setColour(onlyHarmonics.tickColourId, Colours::aqua.darker(0.4f));
 	onlyHarmonics.setColour(onlyHarmonics.tickDisabledColourId, Colours::aqua.darker(0.4f));
 
-	for (int i = 5; i < 11; i++) {
+	for (int i = 5; i < maxFFTOrder; i++) {
 		fftSizeSetting.addItem(std::to_string(1 << i), i);
 	}
 	fftSizeSetting.onChange = [this] { fftSizeSettingCallback(); };

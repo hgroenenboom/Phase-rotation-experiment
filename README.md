@@ -1,31 +1,28 @@
 # Phase Rotation Experiment
-Testing out FFT phase manipulation for phase rotation in audio signals.
+
+This project explores the manipulation of FFT phase for phase rotation in audio signals.
 
 ![Screenshot](./screenshot.png "Screenshot")
 
-Currently tested phase rotation using FFTs on 
-- sinewaves
-- noise
-- squarewaves
-- sawtoothwaves 
-- a mixture of above. 
+Currently, phase rotation can be inspected using:
+- Sinewaves
+- Noise
+- Squarewaves
+- Sawtoothwaves
+- Mixtures of the above.
 
-To easily manipulate audio signals I've used the JUCE framework. Not much time has been spent on extensibility or performance. 
-Binaries of the applicaion can be found inside the ```Builds``` folder.
+This project uses JUCE to facilitate easy audio signal manipulation. This project is written as a quick side project, so minimal attention has been given to extensibility and performance. You can find application binaries in the `Builds` folder if you don't want to build yourself.
 
 ## Features
 - Waveform selection
 - FFT size selection
-- Visual feedback on timedomain and frequency domain
-- UI visual preference settings
+- Visual feedback in both time and frequency domains
 
 ## Purpose
-In order to develop a better understanding of phase and magnitude relations to time domain signals, 
-I wanted to gain some simple intuitive insight in how the frequency domain & time domain influence eachother. 
-This software is designed to gain insight on relations such us:
-- Timedomain transients and frequency domain phase
-- Non circular (frequencies in between bins) fft input and frequency response
+The primary goal is to develop a better understanding of the relationships between phase, magnitude, and time domain signals. This software aims to provide simple and intuitive insights into how the frequency domain and time domain influence each other. Main areas of interest:
+- Time domain transients and frequency domain phase
+- Non-circular (frequencies between bins) FFT input and frequency response
 
-## Possible future features
-- Waveform, phase and magnitude editing
+## Potential Future Features
+- Waveform, phase, and magnitude editing
 - Real-imaginary plot
